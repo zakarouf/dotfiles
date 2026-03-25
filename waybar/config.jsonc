@@ -1,11 +1,8 @@
 {
   "layer": "top",
   "position": "top",
-  "modules-left": ["sway/workspaces", "sway/window"],
-  
-
-  "modules-center": ["clock", "custom/weather"],
-
+  "modules-left": [ "sway/workspaces", "sway/window"],
+  "modules-center": ["sway/mode", "clock", "custom/weather"],
   "modules-right": [
     "pulseaudio",
     "custom/uptime",
@@ -20,12 +17,25 @@
     "custom/power"
   ],
 
+  "idle_inhibitor": { 
+    "format": "{icon}", 
+    "format-icons": { 
+      "activated": "\uf06e", 
+      "deactivated": "\uf070" 
+    } 
+  },
+
+  "sway/mode": {
+    "format": "> {}"
+  },
+
   "sway/workspaces": {
-    "format": "{name}: {icon}",
-    "format-icons": {
-      "active": "",
-      "default": ""
-    }
+    "format": "{icon}",
+    "on-click": "activate",
+    "format-icons": { 
+      "focused": "", 
+      "default": "" 
+    } 
   },
 
   "hyprland/workspaces": {
@@ -59,7 +69,7 @@
   "clock": {
     "timezone": "Asia/Kolkata",
     "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
-    "format": "{:%d/%m/%Y - %H:%M:%S}",
+    "format": "{:%m/%d/%Y - %H:%M:%S}",
     "interval": 1
   },
 

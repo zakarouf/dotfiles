@@ -16,7 +16,7 @@ set $right l
 # Your preferred terminal emulator
 set $term kitty
 # Your preferred application launcher
-set $menu dmenu
+set $menu rofi
 
 set $browser zen-browser
 ### Output configuration
@@ -35,7 +35,8 @@ smart_gaps on
 #----------------------------------------#
 # window colours: border background text #
 #----------------------------------------#
-    client.focused          #ffc0cb #ffc0cb #ffffff
+    #client.focused          #ffc0cb #ffc0cb #ffffff
+    client.focused          #ebdbb2 #ebdbb2 #ffffff
     client.unfocused        #2e3440 #1f222d #888888
     client.focused_inactive #2e3440 #1f222d #888888 
     client.placeholder      #2e3440 #1f222d #888888
@@ -104,7 +105,7 @@ input type:touchpad {
 #
     # Start a terminal
     bindsym $mod+Return exec $term
-	
+
     # Start a Browser Window
     bindsym $mod+z exec $browser
 
@@ -112,7 +113,8 @@ input type:touchpad {
     bindsym $mod+Shift+q kill
 
     # Start your launcher
-    bindsym $mod+d exec $menu
+    bindsym $mod+d exec $menu -show drun
+    bindsym $mod+Shift+w exec $menu -show window
 
     # Lock
     bindsym $mod+Ctrl+l exec swaylock -f -c 101010
